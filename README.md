@@ -74,3 +74,4 @@ In your n8n instance, create a new workflow with two nodes:
 ### 3. Modify the Frontend Code
 
 To use your new n8n backend, you would modify the `services/geminiService.ts` file to `fetch` from your n8n webhook URL instead of calling the Gemini API directly. This part is left as an exercise for the user, as it involves changing the core API call logic.# deepmind
+# image
