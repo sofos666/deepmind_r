@@ -1,0 +1,5 @@
+{
+  "name": "DeepMind",
+  "description": "An application that uses AI to provide deep reflections based on an image representing your mood.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeepMind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // This config is needed for Tailwind CDN to recognize class-based dark mode
+      tailwind.config = {
+        darkMode: 'class'
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      // To prevent FOUC (Flash of Unstyled Content) for dark mode
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(1rem);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.6s ease-in-out forwards;
+      }
+      @keyframes tooltip-fade-in-out {
+        0% { opacity: 0; transform: translateY(10px); }
+        20% { opacity: 1; transform: translateY(0); }
+        80% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(-10px); }
+      }
+      .animate-tooltip {
+          animation: tooltip-fade-in-out 4s ease-in-out forwards;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.8.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slate-100 text-slate-800 dark:bg-gray-900 dark:text-slate-200 transition-colors duration-300">
+    <div id="root"></div>
+    <!-- 
+      For local development, you can add your API key here.
+      DO NOT COMMIT THIS TO A PUBLIC REPOSITORY!
+      <script>
+        window.process = {
+          env: {
+            API_KEY: 'YOUR_GEMINI_API_KEY'
+          }
+        };
+      </script> 
+    -->
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
